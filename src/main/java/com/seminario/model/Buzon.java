@@ -30,12 +30,9 @@ public class Buzon implements Serializable {
     @JoinColumn(name = "idCliente")
     private Usuario usuario;
 
-    public Buzon(int id, String tipo, String contenido, Usuario usuario) {
-        this.id = id;
-        this.tipo = tipo;
+    public Buzon() {
         this.fecha = Utiles.obtenerFechaYHoraActual();
-        this.contenido = contenido;
-        this.usuario = usuario;
+
     }
 
     public String getFecha() {

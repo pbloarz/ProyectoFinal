@@ -27,7 +27,7 @@ public class BuzonService {
     public ResponseEntity<Object> create(@RequestBody Buzon buzon){
         ResponseEntity<Object> respuesta;
         try {
-
+            buzon.setFecha(Utiles.obtenerFechaYHoraActual());
             buzonDao.save(buzon);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Peticion exitosa ", HttpStatus.OK);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
