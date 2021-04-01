@@ -1,19 +1,58 @@
 package com.seminario.model;
 
 
+import com.seminario.Utiles;
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
-import java.util.Calendar;
+import java.io.Serializable;
+
 
 @Entity
-public class Buzon {
+public class Buzon implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private int id;
     private String tipo;
+
+
     private String contenido;
-    private Calendar fecha;
+
+    private String fecha;
+
+
+
+    @ManyToOne
+    @NotNull
+    @JoinColumn(name = "idCliente")
+    private Usuario usuario;
+
+    public Buzon(int id, String tipo, String contenido, Usuario usuario) {
+        this.id = id;
+        this.tipo = tipo;
+        this.fecha = Utiles.obtenerFechaYHoraActual();
+        this.contenido = contenido;
+        this.usuario = usuario;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public int getId() {
         return id;
@@ -39,11 +78,4 @@ public class Buzon {
         this.contenido = contenido;
     }
 
-    public Calendar getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Calendar fecha) {
-        this.fecha = fecha;
-    }
 }
