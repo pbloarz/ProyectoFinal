@@ -1,6 +1,5 @@
 package com.seminario.response;
 
-
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.springframework.http.HttpStatus;
