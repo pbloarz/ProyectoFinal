@@ -30,7 +30,7 @@ public class BuzonController {
         return buzonService.list();
     }
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> delete(@PathVariable("id") int id){
         return buzonService.delete(id);
     }
 

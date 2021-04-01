@@ -32,10 +32,6 @@ public class Buzon implements Serializable {
     @JoinColumn(name = "idCliente")
     private Usuario usuario;
 
-    public Buzon() {
-        this.fecha = LocalDate.now()+"";
-
-    }
 
     public String getFecha() {
         return fecha;

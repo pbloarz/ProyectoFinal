@@ -1,9 +1,5 @@
 package com.seminario.service;
 
-
-import com.seminario.Control;
-import com.seminario.FinalSeminarioApplication;
-import com.seminario.Utiles;
 import com.seminario.model.Buzon;
 import com.seminario.repository.BuzonDao;
 import com.seminario.response.RespuestaPersonalizada;
@@ -55,7 +51,7 @@ public class BuzonService {
             buzon = buzonDao.findById(id);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Peticion exitosa ", HttpStatus.OK);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
-            respuesta = new ResponseEntity<>(res,HttpStatus.OK);
+            respuesta = new ResponseEntity<>(buzon,HttpStatus.OK);
         } catch (Exception e) {
             LOG.error(String.valueOf(e));
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
@@ -82,10 +78,10 @@ public class BuzonService {
     public ResponseEntity<Object> list(){
         ResponseEntity<Object> respuesta;
         try {
-            List<Buzon> libros = buzonDao.findAll();
+            List<Buzon> buzons = buzonDao.findAll();
             RespuestaPersonalizada res = new RespuestaPersonalizada("Peticion exitosa ", HttpStatus.OK);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
-            respuesta = new ResponseEntity<>(libros,HttpStatus.OK);
+            respuesta = new ResponseEntity<>(buzons,HttpStatus.OK);
         } catch (Exception e) {
             LOG.error(String.valueOf(e));
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
@@ -93,7 +89,7 @@ public class BuzonService {
         }
         return respuesta;
     }
-    public ResponseEntity<Object> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Object> delete(@PathVariable("id") int id){
         ResponseEntity<Object> respuesta;
         try {
             buzonDao.deleteById(id);
