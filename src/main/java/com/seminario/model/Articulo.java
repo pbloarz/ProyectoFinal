@@ -19,7 +19,7 @@ public class Articulo {
     private String nombre;
     private Double precioVenta;
     private Double precioCompra;
-    private Date fechaCreacion;
+    private Date fechaCreacion = new Date();
 
     public int getId() {
         return id;
