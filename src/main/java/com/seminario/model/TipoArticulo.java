@@ -27,6 +27,7 @@ public class TipoArticulo implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTA;
     
+    
     @Column(name = "nombreTA")
     private String nombreTA;
     
@@ -37,7 +38,7 @@ public class TipoArticulo implements Serializable{
     private String unidadDeMedida;
     
     @Column(name = "fechaCreacion")
-    private Date fechaDeCreacion;
+    private Date fechaDeCreacion = new Date();
 
     public TipoArticulo() {
     }
@@ -89,6 +90,7 @@ public class TipoArticulo implements Serializable{
     public void setFechaDeCreacion(Date fechaDeCreacion) {
         this.fechaDeCreacion = fechaDeCreacion;
     }
+
     
     
 }
