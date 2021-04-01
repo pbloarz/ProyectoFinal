@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Articulo {
@@ -15,6 +17,8 @@ public class Articulo {
     @Column(name = "id", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @OneToOne
+	@JoinColumn(name = "id_tipoDeArticulo")
     private TipoArticulo tipoDeArticulo;
     private String nombre;
     private Double precioVenta;
