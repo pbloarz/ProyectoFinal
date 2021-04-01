@@ -6,6 +6,8 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 
 
 @Entity
@@ -31,7 +33,7 @@ public class Buzon implements Serializable {
     private Usuario usuario;
 
     public Buzon() {
-        this.fecha = Utiles.obtenerFechaYHoraActual();
+        this.fecha = LocalDate.now()+"";
 
     }
 

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +35,7 @@ public class BuzonService {
         ResponseEntity<Object> respuesta;
         try {
 
-            buzon.setFecha(Utiles.obtenerFechaYHoraActual());
+            buzon.setFecha(LocalDate.now()+"");
             buzonDao.save(buzon);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Peticion exitosa ", HttpStatus.OK);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
