@@ -1,4 +1,4 @@
-package com.seminario.demo;
+package com.seminario;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
