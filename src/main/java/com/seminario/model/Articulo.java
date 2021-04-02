@@ -14,16 +14,16 @@ import javax.persistence.OneToOne;
 public class Articulo {
 
     @Id
-    @Column(name = "id", unique = true)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private Date fechaCreacion = new Date();
     @OneToOne
 	@JoinColumn(name = "id_tipoDeArticulo")
     private TipoArticulo tipoDeArticulo;
     private String nombre;
     private Double precioVenta;
     private Double precioCompra;
-    private Date fechaCreacion = new Date();
+    
 
     public int getId() {
         return id;

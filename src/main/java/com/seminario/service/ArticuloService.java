@@ -22,8 +22,9 @@ public class ArticuloService {
     public ResponseEntity<Object> agregarArticulo(Articulo articuloNuevo) {
         ResponseEntity<Object> respuesta;
         try {
-            articuloDao.save(articuloNuevo);
+            Articulo articulo = articuloDao.save(articuloNuevo);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Articulo registrado con exito", HttpStatus.OK);
+            res.setObjectoRespuesta(articulo);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {
