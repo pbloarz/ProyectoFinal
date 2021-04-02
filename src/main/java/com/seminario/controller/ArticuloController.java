@@ -43,8 +43,4 @@ public class ArticuloController {
         return articuloService.listarArticulos();
     }
 
-    @GetMapping(value = "listar-articulos-fecha")
-    public ResponseEntity<Object> listarArticulosFecha(@RequestParam Date fechaCreacion) {
-        return articuloService.listarArticulosFecha(fechaCreacion);
-    }
 }

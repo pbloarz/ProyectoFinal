@@ -35,7 +35,6 @@ public class ArticuloService {
         return respuesta;
     }
 
-
     public ResponseEntity<Object> modificarArticulo(Articulo articuloModificado) {
         ResponseEntity<Object> respuesta;
         try {
@@ -84,19 +83,4 @@ public class ArticuloService {
         return respuesta;
     }
 
-    public ResponseEntity<Object> listarArticulosFecha(@RequestParam Date fechaCreacion) {
-        ResponseEntity<Object> respuesta;
-        try {
-            Articulo articulo = articuloDao.findByFechaCreacion(fechaCreacion);
-            RespuestaPersonalizada res = new RespuestaPersonalizada("Articulo listado con exito", HttpStatus.OK);
-            res.setObjectoRespuesta(articulo);
-            respuesta = ResponseEntity.ok(HttpStatus.OK);
-            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
-        } catch (Exception e) {
-            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
-            RespuestaPersonalizada res = new RespuestaPersonalizada("Error listando articulo", HttpStatus.BAD_REQUEST);
-            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
-        }
-        return respuesta;
-    }
 }
