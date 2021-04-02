@@ -35,6 +35,23 @@ public class ArticuloService {
         return respuesta;
     }
 
+
+    public ResponseEntity<Object> modificarArticulo(Articulo articuloModificado) {
+        ResponseEntity<Object> respuesta;
+        try {
+            articuloDao.save(articuloModificado);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Articulo modificado con exito", HttpStatus.OK);
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+        } catch (Exception e) {
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error modificando articulo",
+                    HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+    }
+
     public ResponseEntity<Object> eliminarArticulo(@RequestParam Integer id) {
         ResponseEntity<Object> respuesta;
         try {
