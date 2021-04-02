@@ -1,5 +1,6 @@
 package com.seminario.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,19 +17,25 @@ public class Articulo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Date fechaCreacion = new Date();
+    private String fechaCreacion = String.valueOf(LocalDate.now());
     @OneToOne
-	@JoinColumn(name = "id_tipoDeArticulo")
+    @JoinColumn(name = "id_tipoDeArticulo")
     private TipoArticulo tipoDeArticulo;
     private String nombre;
     private Double precioVenta;
     private Double precioCompra;
-    
-
     public int getId() {
         return id;
     }
-
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getFechaCreacion() {
+        return fechaCreacion;
+    }
+    public void setFechaCreacion(String fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
     public TipoArticulo getTipoDeArticulo() {
         return tipoDeArticulo;
     }
@@ -53,13 +60,6 @@ public class Articulo {
     public void setPrecioCompra(Double precioCompra) {
         this.precioCompra = precioCompra;
     }
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-    public void setFechaCreacion(Date fechaCreacion) {
-        this.fechaCreacion = fechaCreacion;
-    }
 
     
-
 }
