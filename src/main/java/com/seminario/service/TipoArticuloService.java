@@ -7,6 +7,8 @@ package com.seminario.service;
 
 import com.seminario.model.TipoArticulo;
 import com.seminario.repository.TipoArticuloDao;
+import java.sql.Date;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,5 +39,9 @@ public class TipoArticuloService {
     
     public void eliminarTArticulo(@RequestParam Integer idTA) {
         TipoArticuloDao.deleteById(idTA);
+    }
+    
+    public List<TipoArticulo> listarTAFecha(@RequestParam Date FIn, Date FFin) {
+        return TipoArticuloDao.listarTAFecha(FIn, FFin);
     }
 }
