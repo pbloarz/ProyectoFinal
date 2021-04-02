@@ -2,6 +2,7 @@ package com.seminario.service;
 
 import java.util.Date;
 import java.util.List;
+import org.apache.log4j.*;
 
 import com.seminario.model.Articulo;
 import com.seminario.repository.ArticuloDao;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Service
 public class ArticuloService {
 
+    private static final Logger logger = Logger.getLogger(ArticuloService.class);
+
     @Autowired
     ArticuloDao articuloDao;
 
@@ -28,6 +31,7 @@ public class ArticuloService {
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {
+            logger.error(e);
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Error registrando articulo",
                     HttpStatus.BAD_REQUEST);
@@ -45,6 +49,7 @@ public class ArticuloService {
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {
+            logger.error(e);
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Error modificando articulo",
                     HttpStatus.BAD_REQUEST);
@@ -61,6 +66,7 @@ public class ArticuloService {
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {
+            logger.error(e);
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Error eliminando articulo",
                     HttpStatus.BAD_REQUEST);
@@ -78,6 +84,7 @@ public class ArticuloService {
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {
+            logger.error(e);
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Error listando articulos", HttpStatus.BAD_REQUEST);
             respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
@@ -94,6 +101,7 @@ public class ArticuloService {
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {
+            logger.error(e);
             respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
             RespuestaPersonalizada res = new RespuestaPersonalizada("Error listando articulos", HttpStatus.BAD_REQUEST);
             respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
