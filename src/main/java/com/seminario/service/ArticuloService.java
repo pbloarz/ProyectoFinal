@@ -72,9 +72,25 @@ public class ArticuloService {
     public ResponseEntity<Object> listarArticulos() {
         ResponseEntity<Object> respuesta;
         try {
-            List<Articulo> listaClientes = articuloDao.findAll();
+            List<Articulo> listaArticulos = articuloDao.findAll();
             RespuestaPersonalizada res = new RespuestaPersonalizada("Articulos listados con exito", HttpStatus.OK);
-            res.setObjectoRespuesta(listaClientes);
+            res.setObjectoRespuesta(listaArticulos);
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+        } catch (Exception e) {
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error listando articulos", HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+    }
+
+    public ResponseEntity<Object> listarArticulosFecha(@RequestParam String fechaInicio, String fechaFin) {
+        ResponseEntity<Object> respuesta;
+        try {
+            List<Articulo> listaArticulos = articuloDao.findByFechaCreacion(fechaInicio, fechaFin);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Articulos listados con exito", HttpStatus.OK);
+            res.setObjectoRespuesta(listaArticulos);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(res, HttpStatus.OK);
         } catch (Exception e) {

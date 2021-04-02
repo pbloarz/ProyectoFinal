@@ -43,4 +43,9 @@ public class ArticuloController {
         return articuloService.listarArticulos();
     }
 
+    @GetMapping("listar-fechas")
+	public ResponseEntity<Object> listarArticulosFecha(@RequestParam String fechaInicio, String fechaFin){
+		return articuloService.listarArticulosFecha(fechaInicio, fechaFin);
+	}
+
 }
