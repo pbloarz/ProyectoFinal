@@ -5,10 +5,15 @@
  */
 package com.seminario.repository;
 
+import com.seminario.model.TipoArticulo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
 /**
  *
  * @author Carlos
  */
-public interface TipoArticuloDao {
+@Repository
+public interface TipoArticuloDao extends JpaRepository<TipoArticulo, Integer>{
     
 }
