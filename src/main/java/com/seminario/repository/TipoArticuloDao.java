@@ -6,7 +6,7 @@
 package com.seminario.repository;
 
 import com.seminario.model.TipoArticulo;
-import java.sql.Date;
+import java.util.Date;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,6 +19,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TipoArticuloDao extends JpaRepository<TipoArticulo, Integer>{
-    @Query(value = "select * from tarticulo where fecha_creacion >= '?1' AND  fecha_creacion < '?2' ", nativeQuery= true )
-    public List<TipoArticulo> listarTAFecha(Date FIn, Date FFin);
+    @Query(value = "select * from tarticulo where fecha_creacion >= ?1 AND  fecha_creacion < ?2 ", nativeQuery= true )
+    public List<TipoArticulo> listarTAFecha(String d1, String d2);
 }
