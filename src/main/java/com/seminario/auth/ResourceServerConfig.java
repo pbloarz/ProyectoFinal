@@ -1,6 +1,5 @@
 package com.seminario.auth;
 
-
 import java.util.Arrays;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -18,22 +17,17 @@ import org.springframework.web.filter.CorsFilter;
 
 @Configuration
 @EnableResourceServer
-public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests().antMatchers(HttpMethod.GET,"/oauth/token","/oauth/autorize**","/publica").permitAll()
-                .antMatchers(HttpMethod.POST,"/api/buzon/","/api/client/**","/api/articulo/**").permitAll()
-                .and().authorizeRequests()
-                .and().cors().configurationSource(corsConfigurationSource());
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/oauth/token", "/oauth/autorize**", "/publica")
+                .permitAll().antMatchers(HttpMethod.POST, "/api/buzon/", "/api/client/**")
+                .permitAll().and().authorizeRequests().and().cors().configurationSource(corsConfigurationSource());
     }
 
-
-
-
     @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
+    public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList("http://localhost:4200"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
@@ -46,13 +40,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
     }
 
     @Bean
-    public FilterRegistrationBean<CorsFilter> corsFilter(){
-        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(new CorsFilter(corsConfigurationSource()));
+    public FilterRegistrationBean<CorsFilter> corsFilter() {
+        FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<CorsFilter>(
+                new CorsFilter(corsConfigurationSource()));
         bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
         return bean;
 
     }
-
-
 
 }
