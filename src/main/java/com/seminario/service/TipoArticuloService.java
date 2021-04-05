@@ -8,7 +8,6 @@ package com.seminario.service;
 import com.seminario.model.TipoArticulo;
 import com.seminario.repository.TipoArticuloDao;
 import com.seminario.response.RespuestaPersonalizada;
-import java.util.Date;
 import com.seminario.service.TipoArticuloService;
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -19,10 +18,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-/**
- *
- * @author Carlos
- */
 @Service
 public class TipoArticuloService {
     
