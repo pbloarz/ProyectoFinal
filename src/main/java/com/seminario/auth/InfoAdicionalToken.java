@@ -2,7 +2,9 @@ package com.seminario.auth;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.seminario.model.Persona;
 import com.seminario.model.Usuario;
+import com.seminario.service.PersonaService;
 import com.seminario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
@@ -10,7 +12,6 @@ import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
-
 
 
 @Component
