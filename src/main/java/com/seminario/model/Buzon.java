@@ -6,7 +6,7 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 import java.io.Serializable;
 
-
+//modelo
 @Entity
 public class Buzon implements Serializable {
     private static final long serialVersionUID = 1L;
