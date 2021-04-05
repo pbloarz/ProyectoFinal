@@ -29,24 +29,18 @@ public class JwtConfig {
             + "n9qLFWbIHqyFhe55behZQjJ1WfZVCaLcJ68c01J6TzBMIuOmd6dVLsRmh+NOGBq5\r\n"
             + "XDu3AoGBAKfY7wF0YMeO0rc9r8RLddnaTcRkUNpFdcUgtOKQSevO0ODLpRqqJiae\r\n"
             + "mIeoUnrraeCqcyaRpurM4mNQxw/TLiUsp/krXimqkWw8b7PloxbKdKCSe/SIV2Nd\r\n"
-            + "4zokDfHUFlhAioayzxtgmretvFHhaxscCtnMUMrsPDxtCG6Y+Lrl\r\n"
-            + "-----END RSA PRIVATE KEY-----";
-    public static final String RSA_PUBLICA ="-----BEGIN PUBLIC KEY-----\r\n"
+            + "4zokDfHUFlhAioayzxtgmretvFHhaxscCtnMUMrsPDxtCG6Y+Lrl\r\n" + "-----END RSA PRIVATE KEY-----";
+    public static final String RSA_PUBLICA = "-----BEGIN PUBLIC KEY-----\r\n"
             + "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtwYrii91mDIN/P6v8wfR\r\n"
             + "I9prqcCZwU4WILyN0DjSOd4t3IussnPYhoL5nzKoxWCZ3P9SW9LCJGahh3YQSYBa\r\n"
             + "3uKg8vjTRmlgJPPw9L2FDn64g6SUZR3/rgjolDX9Eqp/naFOyEHLeZJvsyQPoyuu\r\n"
             + "bUf4TPko6IzkDZSWgX8fRzxFXmQAP4AP9U+/jEp/eKX4bx5FqGhu9q1rN+O22vVA\r\n"
             + "RkoGXF2ndg9nUUpMmCF6e5MfslvBRS2GvyzB4bq6XDo8ZtHRw9YlVcYKavCg1ZZd\r\n"
-            + "9VlCY1DVBOFPJ34ZqB72+Fx4582XZqXduI/0XFZJWZ8e49KU28/9GWnhhz+4kWUQ\r\n"
-            + "9QIDAQAB\r\n"
+            + "9VlCY1DVBOFPJ34ZqB72+Fx4582XZqXduI/0XFZJWZ8e49KU28/9GWnhhz+4kWUQ\r\n" + "9QIDAQAB\r\n"
             + "-----END PUBLIC KEY-----";
-
-
 
     JwtConfig() {
         throw new IllegalStateException("Utility class");
     }
 
-
 }
-
