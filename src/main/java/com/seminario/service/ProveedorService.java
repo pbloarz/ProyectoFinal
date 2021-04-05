@@ -26,7 +26,7 @@ public class ProveedorService {
 		ResponseEntity<Object> respuesta;
 		try {
 			RespuestaPersonalizada res = new RespuestaPersonalizada("Creacion de proveedor con exito", HttpStatus.OK);
-			res.setObjetoRespuesta(proveedorDao.save(proveedorN));
+			res.setObjectoRespuesta(proveedorDao.save(proveedorN));
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
 		}catch(Exception e) {
@@ -43,7 +43,7 @@ public class ProveedorService {
 		try {
 			List<Proveedor> proveedores = proveedorDao.findAll();
 			RespuestaPersonalizada res = new RespuestaPersonalizada("Consulta de los proveedores exitosa", HttpStatus.OK);
-			res.setObjetoRespuesta(proveedores);
+			res.setObjectoRespuesta(proveedores);
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
 		}catch(Exception e) {
@@ -60,7 +60,7 @@ public class ProveedorService {
 		try {
 			List<Proveedor> proveedores = proveedorDao.findByFechaCreacion(fechaIni, fechaFin);
 			RespuestaPersonalizada res = new RespuestaPersonalizada("Consulta de los proveedores segun el rango de fecha exitosa", HttpStatus.OK);
-			res.setObjetoRespuesta(proveedores);
+			res.setObjectoRespuesta(proveedores);
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
 		}catch(Exception e) {
@@ -76,7 +76,7 @@ public class ProveedorService {
 		ResponseEntity<Object> respuesta;
 		try {
 			RespuestaPersonalizada res = new RespuestaPersonalizada("Modificacion del proveedor exitosa", HttpStatus.OK);
-			res.setObjetoRespuesta(proveedorDao.save(proveedorN));
+			res.setObjectoRespuesta(proveedorDao.save(proveedorN));
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
 		}catch(Exception e) {
