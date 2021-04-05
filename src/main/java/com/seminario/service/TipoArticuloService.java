@@ -34,12 +34,10 @@ public class TipoArticuloService {
     public ResponseEntity<Object> obtenerTArticulos() {
         ResponseEntity<Object> respuesta;
         try {
-
             List<TipoArticulo> tarticulos = TipoArticuloDao.findAll();
-            if (tarticulos.size() == 0) {
+            if (tarticulos.isEmpty()) {
                 throw new Exception("Error");
             }
-
             RespuestaPersonalizada res = new RespuestaPersonalizada("Busqueda de tipos de articulos con exito", HttpStatus.OK);
             res.setObjectoRespuesta(tarticulos);
             respuesta = ResponseEntity.ok(HttpStatus.OK);
@@ -55,19 +53,80 @@ public class TipoArticuloService {
         //return TipoArticuloDao.findAll();
     }
     
-    public TipoArticulo crearTArticulo(@RequestBody TipoArticulo t) {
-        return TipoArticuloDao.save(t);
+    public ResponseEntity<Object> crearTArticulo(@RequestBody TipoArticulo t) {
+        ResponseEntity<Object> respuesta;
+        try {
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Creacion de tipo de articulos con exito", HttpStatus.OK);
+            res.setObjectoRespuesta(TipoArticuloDao.save(t));
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+            logger.isTraceEnabled();
+        } catch (Exception e) {
+            logger.error(e);
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error creando tipo de articulos", HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+        //return TipoArticuloDao.save(t);
     }
     
-    public TipoArticulo editarTArticulo(@RequestBody TipoArticulo t) {
-        return TipoArticuloDao.save(t);
+    public ResponseEntity<Object> editarTArticulo(@RequestBody TipoArticulo t) {
+        ResponseEntity<Object> respuesta;
+        try {
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Modificacion de tipo de articulos con exito", HttpStatus.OK);
+            res.setObjectoRespuesta(TipoArticuloDao.save(t));
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+            logger.isTraceEnabled();
+        } catch (Exception e) {
+            logger.error(e);
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error modificando tipos de articulos", HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+        //return TipoArticuloDao.save(t);
     }
     
     public void eliminarTArticulo(@RequestParam Integer idTA) {
+        ResponseEntity<Object> respuesta;
+        try {
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Eliminacion de tipo de articulos con exito", HttpStatus.OK);
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+            logger.isTraceEnabled();
+        } catch (Exception e) {
+            logger.error(e);
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error eliminando tipos de articulos", HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
         TipoArticuloDao.deleteById(idTA);
     }
     
-    public List<TipoArticulo> listarTAFecha(@RequestParam String d1, String d2) {
-        return TipoArticuloDao.listarTAFecha(d1, d2);
+    public ResponseEntity<Object> listarTAFecha(@RequestParam String d1, String d2) {
+        ResponseEntity<Object> respuesta;
+        try {
+
+            List<TipoArticulo> taFechas = TipoArticuloDao.findAll();
+            if (taFechas.isEmpty()) {
+                throw new Exception("Error");
+            }
+
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Busqueda de tipos de articulos por fecha realizada con exito", HttpStatus.OK);
+            res.setObjectoRespuesta(TipoArticuloDao.listarTAFecha(d1, d2));
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+            logger.isTraceEnabled();
+        } catch (Exception e) {
+            logger.error(e);
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error listando tipos de articulos por fechas", HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+        
+        //return TipoArticuloDao.listarTAFecha(d1, d2);
     }
 }
