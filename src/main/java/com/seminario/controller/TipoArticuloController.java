@@ -44,12 +44,12 @@ public class TipoArticuloController implements Serializable{
     }
     
     @PostMapping(value = "crear-tipo-articulo")
-    public TipoArticulo crearTArticulo(@RequestBody TipoArticulo t) {
+    public ResponseEntity<Object> crearTArticulo(@RequestBody TipoArticulo t) {
         return TipoArticuloService.crearTArticulo(t);        
     }
     
     @PutMapping(value = "editar-tipo-articulo")
-    public TipoArticulo editarTArticulo(@RequestBody TipoArticulo t) {
+    public ResponseEntity<Object> editarTArticulo(@RequestBody TipoArticulo t) {
         return TipoArticuloService.editarTArticulo(t);
     }
     
@@ -60,6 +60,6 @@ public class TipoArticuloController implements Serializable{
     
     @GetMapping(value = "listar-fechas-TA")
     public List<TipoArticulo> listarTAFecha(@RequestParam String d1, @RequestParam String d2){
-		return TipoArticuloService.listarTAFecha(d1, d2);
+		return (List<TipoArticulo>) TipoArticuloService.listarTAFecha(d1, d2);
     }
 }
