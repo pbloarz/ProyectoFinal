@@ -1,13 +1,10 @@
 package com.seminario.model;
 
 
-import com.seminario.Utiles;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
-import java.time.LocalDate;
 
 
 @Entity

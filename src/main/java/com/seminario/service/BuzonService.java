@@ -49,7 +49,7 @@ public class BuzonService {
         ResponseEntity<Object> respuesta;
         try {
             buzon = buzonDao.findById(id);
-            RespuestaPersonalizada res = new RespuestaPersonalizada("Peticion exitosa ", HttpStatus.OK);
+            
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(buzon,HttpStatus.OK);
         } catch (Exception e) {
@@ -79,7 +79,7 @@ public class BuzonService {
         ResponseEntity<Object> respuesta;
         try {
             List<Buzon> buzons = buzonDao.findAll();
-            RespuestaPersonalizada res = new RespuestaPersonalizada("Peticion exitosa ", HttpStatus.OK);
+        
             respuesta = ResponseEntity.ok(HttpStatus.OK);
             respuesta = new ResponseEntity<>(buzons,HttpStatus.OK);
         } catch (Exception e) {
