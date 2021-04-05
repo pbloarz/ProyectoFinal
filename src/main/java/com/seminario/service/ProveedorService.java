@@ -18,7 +18,7 @@ import com.seminario.response.RespuestaPersonalizada;
 public class ProveedorService {
 
 	private static final Logger logger = Logger.getLogger(ProveedorService.class);
-	
+
 	@Autowired
 	private ProveedorDao proveedorDao;
 
@@ -29,45 +29,51 @@ public class ProveedorService {
 			res.setObjetoRespuesta(proveedorDao.save(proveedorN));
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.error(e);
 			respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
-			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de crear el proveedor", HttpStatus.BAD_REQUEST);
-			
+			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de crear el proveedor",
+					HttpStatus.BAD_REQUEST);
+
 		}
-		return respuesta;	
+		return respuesta;
 	}
 
 	public ResponseEntity<Object> obtenerProveedores() {
 		ResponseEntity<Object> respuesta;
 		try {
 			List<Proveedor> proveedores = proveedorDao.findAll();
-			RespuestaPersonalizada res = new RespuestaPersonalizada("Consulta de los proveedores exitosa", HttpStatus.OK);
+			RespuestaPersonalizada res = new RespuestaPersonalizada("Consulta de los proveedores exitosa",
+					HttpStatus.OK);
 			res.setObjetoRespuesta(proveedores);
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.error(e);
 			respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
-			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de consultar los proveedores", HttpStatus.BAD_REQUEST);
-			
+			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de consultar los proveedores",
+					HttpStatus.BAD_REQUEST);
+
 		}
 		return respuesta;
 	}
-	
+
 	public ResponseEntity<Object> obtenerProveedoresFechas(@RequestParam String fechaIni, String fechaFin) {
 		ResponseEntity<Object> respuesta;
 		try {
 			List<Proveedor> proveedores = proveedorDao.findByFechaCreacion(fechaIni, fechaFin);
-			RespuestaPersonalizada res = new RespuestaPersonalizada("Consulta de los proveedores segun el rango de fecha exitosa", HttpStatus.OK);
+			RespuestaPersonalizada res = new RespuestaPersonalizada(
+					"Consulta de los proveedores segun el rango de fecha exitosa", HttpStatus.OK);
 			res.setObjetoRespuesta(proveedores);
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.error(e);
 			respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
-			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de consultar los proveedores en el rango de fechas", HttpStatus.BAD_REQUEST);
-			
+			respuesta = new ResponseEntity<>(
+					"Disculpa tenemos un error tratando de consultar los proveedores en el rango de fechas",
+					HttpStatus.BAD_REQUEST);
+
 		}
 		return respuesta;
 	}
@@ -75,15 +81,17 @@ public class ProveedorService {
 	public ResponseEntity<Object> modificarProveedor(@RequestBody Proveedor proveedorN) {
 		ResponseEntity<Object> respuesta;
 		try {
-			RespuestaPersonalizada res = new RespuestaPersonalizada("Modificacion del proveedor exitosa", HttpStatus.OK);
+			RespuestaPersonalizada res = new RespuestaPersonalizada("Modificacion del proveedor exitosa",
+					HttpStatus.OK);
 			res.setObjetoRespuesta(proveedorDao.save(proveedorN));
 			respuesta = ResponseEntity.ok(HttpStatus.OK);
 			respuesta = new ResponseEntity<>(res, HttpStatus.OK);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			logger.error(e);
 			respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
-			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de modificar el proveedor", HttpStatus.BAD_REQUEST);
-			
+			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de modificar el proveedor",
+					HttpStatus.BAD_REQUEST);
+
 		}
 		return respuesta;
 
