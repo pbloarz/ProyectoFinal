@@ -27,7 +27,7 @@ public class Buzon implements Serializable {
     @ManyToOne
     @NotNull
     @JoinColumn(name = "idCliente")
-    private Usuario usuario;
+    private Persona persona;
 
 
     public String getFecha() {
@@ -38,12 +38,12 @@ public class Buzon implements Serializable {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Persona getUsuario() {
+        return persona;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     public int getId() {
