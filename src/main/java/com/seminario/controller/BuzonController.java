@@ -1,5 +1,7 @@
 package com.seminario.controller;
 
+import java.util.List;
+
 import com.seminario.model.Buzon;
 import com.seminario.service.BuzonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,10 @@ public class BuzonController {
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Object> delete(@PathVariable("id") int id){
         return buzonService.delete(id);
+    }
+    @GetMapping("/findByRangeDate")
+    public List<Buzon> findByRangeDate(@RequestParam String desde, @RequestParam String hasta){
+        return buzonService.findByRangeDate(desde, hasta);
     }
 
 }

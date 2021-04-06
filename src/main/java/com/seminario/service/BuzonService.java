@@ -104,5 +104,8 @@ public class BuzonService {
         }
         return respuesta;
     }
+    public List<Buzon> findByRangeDate(String desde, String hasta){
+        return buzonDao.findByRangeDate(desde, hasta);
+    }
 
 }
