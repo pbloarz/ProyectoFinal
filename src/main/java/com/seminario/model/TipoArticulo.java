@@ -5,8 +5,10 @@
  */
 package com.seminario.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,6 +29,7 @@ public class TipoArticulo implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTA;
     
+    
     @Column(name = "nombreTA")
     private String nombreTA;
     
@@ -36,18 +39,11 @@ public class TipoArticulo implements Serializable{
     @Column(name = "unidadMedida")
     private String unidadDeMedida;
     
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = Shape.STRING)
     @Column(name = "fechaCreacion")
-    private Date fechaDeCreacion;
+    private String fechaDeCreacion = String.valueOf(LocalDate.now());
 
     public TipoArticulo() {
-    }
-
-    public TipoArticulo(int idTA, String nombreTA, String referencia, String unidadDeMedida, Date fechaDeCreacion) {
-        this.idTA = idTA;
-        this.nombreTA = nombreTA;
-        this.referencia = referencia;
-        this.unidadDeMedida = unidadDeMedida;
-        this.fechaDeCreacion = fechaDeCreacion;
     }
 
     public int getIdTA() {
@@ -82,13 +78,13 @@ public class TipoArticulo implements Serializable{
         this.unidadDeMedida = unidadDeMedida;
     }
 
-    public Date getFechaDeCreacion() {
+    public String getFechaDeCreacion() {
         return fechaDeCreacion;
     }
 
-    public void setFechaDeCreacion(Date fechaDeCreacion) {
+    public void setFechaDeCreacion(String fechaDeCreacion) {
         this.fechaDeCreacion = fechaDeCreacion;
     }
-    
+
     
 }
