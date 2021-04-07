@@ -17,6 +17,6 @@ import org.springframework.stereotype.Repository;
 public interface ViaticosDao extends JpaRepository<Viatico,Integer> {
     
     @Modifying
-    @Query(value ="SELECT * FROM prueba_final.viaticos WHERE via_fec BETWEEN :fechaIni AND :fechaFin", nativeQuery = true)
+    @Query(value ="SELECT * FROM finalseminario.viaticos WHERE viatico_fec BETWEEN :fechaIni AND :fechaFin", nativeQuery = true)
 	public List<Viatico> findByFechas(Date fechaIni, Date fechaFin);
 }

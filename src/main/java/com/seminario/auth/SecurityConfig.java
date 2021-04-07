@@ -5,6 +5,8 @@
  */
 package com.seminario.auth;
 
+import com.seminario.service.PersonaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,15 +26,17 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+	private PersonaService personaService;
 
     @Autowired
-    private BCryptPasswordEncoder brycrp;
+    private BCryptPasswordEncoder bcrypt;
 
-    @Override
     @Autowired
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(this.userDetailsService()).passwordEncoder(brycrp);
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(personaService).passwordEncoder(bcrypt);
+	}
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

@@ -38,13 +38,13 @@ public class Viatico {
     @JoinColumn(name = "usuario_id")
     @ManyToOne
     @NotNull(message = "El usuario que autorizo el gasto no puede estar vacio")
-    private Usuario usuarioAutorizo;
+    private Persona usuarioAutorizo;
 
     public Viatico() {
         super();
     }
 
-    public Viatico( double valor, String tipoGasto, Usuario usuarioAutorizo) {
+    public Viatico( double valor, String tipoGasto, Persona usuarioAutorizo) {
         this.valor = valor;
         this.tipoGasto = tipoGasto;
         this.usuarioAutorizo = usuarioAutorizo;
@@ -82,11 +82,11 @@ public class Viatico {
         this.fecha = fecha;
     }
 
-    public Usuario getUsuarioAutorizo() {
+    public Persona getUsuarioAutorizo() {
         return usuarioAutorizo;
     }
 
-    public void setUsuarioAutorizo(Usuario usuarioAutorizo) {
+    public void setUsuarioAutorizo(Persona usuarioAutorizo) {
         this.usuarioAutorizo = usuarioAutorizo;
     }
 
