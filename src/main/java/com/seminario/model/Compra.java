@@ -3,7 +3,6 @@ package com.seminario.model;
 import javax.persistence.*;
 
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name="Compra")

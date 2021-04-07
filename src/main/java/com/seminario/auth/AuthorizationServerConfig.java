@@ -64,7 +64,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory().withClient("cliente")
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
-                .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "USER").scopes("read", "write").autoApprove(true)
+                .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "ADMIN").scopes("read", "write").autoApprove(true)
                 .secret(bcrypt.encode("password"));
     }
 
