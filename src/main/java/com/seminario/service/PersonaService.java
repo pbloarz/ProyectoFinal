@@ -16,7 +16,7 @@ import com.seminario.repository.PersonaDao;
 import com.seminario.response.RespuestaPersonalizada;
 
 @Service
-public class PersonaService{
+public class PersonaService {
 	
     @Autowired
     private PersonaDao personaDao;
@@ -78,18 +78,9 @@ public class PersonaService{
     public void eliminarPersona(@RequestParam Integer id) {
         personaDao.deleteById(id);
     }    
-    /*
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Persona persona = personaDao.findByNombre(username);
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority("ADMIN"));
-		UserDetails user = new User(persona.getNombre(), persona.getClave(), authorities);
-		return user;
-	}
+    
 	
-	public Persona obtenerUnaPersona(String nombre) {
-		return personaDao.findByNombre(nombre);
-	}*/
 
+	
+    
 }
