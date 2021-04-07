@@ -1,5 +1,4 @@
 package com.seminario.auth;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,8 +11,10 @@ import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.stereotype.Component;
 
+
+
 @Component
-public class InfoAdicionalToken implements TokenEnhancer {
+public class InfoAdicionalToken implements TokenEnhancer{
 
     @Autowired
     private UsuarioService usuarioService;
