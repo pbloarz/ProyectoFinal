@@ -1,19 +1,14 @@
 package com.seminario.service;
 
-import java.util.ArrayList;
+
 import com.seminario.model.Usuario;
 import com.seminario.repository.UsuarioDao;
 import com.seminario.response.RespuestaPersonalizada;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Service
-public class UsuarioService implements UserDetailsService{
+public class UsuarioService{
     @Autowired private UsuarioDao usuarioDao;
     @Autowired private BCryptPasswordEncoder encoder;
     public ResponseEntity<Object> crear(Usuario usuario){
@@ -63,14 +58,5 @@ public class UsuarioService implements UserDetailsService{
             respuesta = new ResponseEntity<>("Disculpenos tenemos un error",HttpStatus.BAD_REQUEST);
         }
         return respuesta;
-    }
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioDao.findByNombre(username);
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		System.out.println(usuario.getRol());
-		authorities.add(new SimpleGrantedAuthority(usuario.getRol()));
-		UserDetails user = new User(usuario.getNombre(), usuario.getClave(), authorities);
-		return user;
     }
 }
