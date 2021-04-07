@@ -1,6 +1,5 @@
 package com.seminario.service;
 
-import java.util.Date;
 import java.util.List;
 import org.apache.log4j.*;
 

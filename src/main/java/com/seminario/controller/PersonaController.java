@@ -40,6 +40,11 @@ public class PersonaController {
     @DeleteMapping(value= "eliminar-persona")
     public void eliminarPersona(@RequestParam int id) {
        personaService.eliminarPersona(id);
-    }   
+    }
+    
+    @GetMapping(value = "listar-fechas")
+    public ResponseEntity<Object> consultarFecha(@RequestParam String fechaIni, String fechaFin){
+    	return personaService.obtenerFecha(fechaIni, fechaFin);
+    }
 
 }

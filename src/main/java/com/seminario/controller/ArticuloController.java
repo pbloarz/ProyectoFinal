@@ -1,6 +1,5 @@
 package com.seminario.controller;
 
-import java.util.Date;
 
 import com.seminario.model.Articulo;
 import com.seminario.service.ArticuloService;
