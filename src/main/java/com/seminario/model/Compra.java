@@ -21,9 +21,9 @@ public class Compra implements Serializable {
     
     private String fechaYHora;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    @JoinColumn(name = "id")
-    private Proveedor proveedor;
+    //@ManyToOne(cascade = CascadeType.MERGE)
+    //@JoinColumn(name = "id")
+    //private Proveedor proveedor;
 
     public Compra() {
         this.fechaYHora = Util.obtenerFechaYHoraActual();
