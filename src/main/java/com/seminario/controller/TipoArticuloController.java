@@ -10,6 +10,7 @@ import com.seminario.service.TipoArticuloService;
 import java.io.Serializable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("api/tipo-articulo")
+@CrossOrigin(origins= "*")
 public class TipoArticuloController implements Serializable{
     
     private static final long serialVersionUID = 1L;
