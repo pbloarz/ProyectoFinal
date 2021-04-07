@@ -1,22 +1,14 @@
 package com.seminario.controller;
 
-import java.util.List;
-
 import com.seminario.model.Buzon;
 import com.seminario.service.BuzonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
-
 
 
 @RestController
 @RequestMapping("api/buzon")
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class BuzonController {
 
     @Autowired private BuzonService buzonService;
