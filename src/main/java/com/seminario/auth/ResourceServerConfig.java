@@ -19,15 +19,16 @@ import org.springframework.web.filter.CorsFilter;
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
-    @Override
+	@Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers(HttpMethod.GET, "/oauth/token", "/oauth/autorize**", "/publica").permitAll()
             .antMatchers(HttpMethod.GET, "/api/articulo/**","/api/tipo-articulo/**","/api/proveedor/**").permitAll()
-            .antMatchers(HttpMethod.POST, "/api/articulo/**","/api/articulo/**","/api/proveedor/**","/api/persona/**","/api/viaticos/**").hasAuthority("ADMIN")
-            .antMatchers(HttpMethod.PUT, "/api/articulo/**","/api/articulo/**","/api/proveedor/**","/api/persona/**","/api/buzon/**","/api/venta/**","/api/viaticos/**").hasAuthority("ADMIN")
-            .antMatchers(HttpMethod.DELETE, "/api/articulo/**","/api/articulo/**","/api/proveedor/**","/api/persona/**","/api/buzon/**","/api/venta/**","/api/viaticos/**").hasAuthority("ADMIN")
-            .antMatchers(HttpMethod.GET, "/api/persona/listar-persona","/api/buzon/list","/api/venta/get-ventas","/api/viaticos/obtener-viaticos").hasAuthority("ADMIN")
-            .antMatchers(HttpMethod.POST, "/api/buzon/**").permitAll()
+            .antMatchers(HttpMethod.POST, "/api/articulo/**","/api/tipo-articulo/**","/api/proveedor/**","/api/persona/**","/api/viaticos/**","/api/caja/**").permitAll()//hasAuthority("ADMIN")
+            .antMatchers(HttpMethod.PUT, "/api/articulo/**","/api/tipo-articulo/**","/api/proveedor/**","/api/persona/**","/api/buzon/**","/api/venta/**","/api/viaticos/**","/api/caja/**").hasAuthority("ADMIN")
+            .antMatchers(HttpMethod.DELETE, "/api/articulo/**","/api/tipo-articulo/**","/api/proveedor/**","/api/persona/**","/api/buzon/**","/api/venta/**","/api/viaticos/**","/api/caja/**").hasAuthority("ADMIN")
+            .antMatchers(HttpMethod.GET, "/api/buzon/list","/api/venta/get-ventas","/api/viaticos/obtener-viaticos","/api/persona/listar-persona").hasAuthority("ADMIN")
+            .antMatchers(HttpMethod.GET,"/api/caja/vercajas").hasAnyAuthority("VENDEDOR","ADMIN")
+            .antMatchers(HttpMethod.POST, "/api/buzon/**").hasAnyAuthority("CLIENTE")
             .antMatchers(HttpMethod.POST, "/api/venta/**").hasAnyAuthority("VENDEDOR","CAJERO")
             .and().authorizeRequests().and().cors().configurationSource(corsConfigurationSource());
     }
