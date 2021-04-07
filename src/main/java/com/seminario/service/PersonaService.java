@@ -121,3 +121,4 @@ public class PersonaService implements UserDetailsService{
 		return personaDao.findByRol(nombre);
 	}
 }
+
