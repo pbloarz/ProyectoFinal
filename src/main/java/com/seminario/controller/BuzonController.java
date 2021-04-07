@@ -33,5 +33,9 @@ public class BuzonController {
     public ResponseEntity<Object> delete(@PathVariable("id") int id){
         return buzonService.delete(id);
     }
+    @GetMapping("/findByRangeDate")
+    public ResponseEntity<Object> findByRangeDate(String desde, String hasta){        
+        return buzonService.findByRangeDate(desde, hasta);
+    }
 
 }

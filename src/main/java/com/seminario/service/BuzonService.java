@@ -105,4 +105,18 @@ public class BuzonService {
         return respuesta;
     }
 
+    public ResponseEntity<Object> findByRangeDate(String desde, String hasta){
+        ResponseEntity<Object> respuesta;
+        try {
+            List<Buzon> buzons = buzonDao.findByRangeDate(desde, hasta);
+            respuesta = ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(buzons,HttpStatus.OK);
+        } catch (Exception e) {
+            LOG.error(String.valueOf(e));
+            respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>("Error al procesar la peticion.",HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+    }
+
 }
