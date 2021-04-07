@@ -42,7 +42,7 @@ public class BuzonController {
         return buzonService.delete(id);
     }
     @GetMapping("/findByRangeDate")
-    public List<Buzon> findByRangeDate(@RequestParam String desde, @RequestParam String hasta){
+    public ResponseEntity<Object> findByRangeDate(String desde, String hasta){        
         return buzonService.findByRangeDate(desde, hasta);
     }
 
