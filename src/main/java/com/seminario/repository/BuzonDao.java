@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 @Transactional
 public interface BuzonDao extends JpaRepository<Buzon,Integer> {
     
-    @Query(value = "SELECT * FROM buzon WHERE fecha  BETWEEN ?1 AND ?2", nativeQuery = true)
+    
+    @Query(value = "SELECT * FROM buzon where fecha >= ?1 and fecha <= ?2",nativeQuery = true)
 	public List<Buzon> findByRangeDate(String desde, String hasta);
 }

@@ -7,11 +7,13 @@ import com.seminario.service.BuzonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 
 @RestController
 @RequestMapping("api/buzon")
+@CrossOrigin(origins="*")
 public class BuzonController {
 
     @Autowired private BuzonService buzonService;
