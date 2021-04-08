@@ -97,8 +97,19 @@ public class ProveedorService {
 
 	}
 
-	public void eliminarProveedor(@RequestParam Integer id) {
-		proveedorDao.deleteById(id);
-	}
-
+	 public ResponseEntity<Object> eliminarProveedor (@RequestParam Integer id){
+        ResponseEntity<Object> respuesta;
+        try {
+            RespuestaPersonalizada res = new RespuestaPersonalizada("El proveedor fue eliminado correctamente", HttpStatus.OK);
+            res.setObjectoRespuesta(proveedorDao.findById(id));
+            proveedorDao.deleteById(id);
+            respuesta= ResponseEntity.ok(HttpStatus.OK);
+            respuesta = new ResponseEntity<>(res, HttpStatus.OK);
+        } catch (Exception e) {
+            RespuestaPersonalizada res = new RespuestaPersonalizada("Error al eliminar el proveedor ", HttpStatus.BAD_REQUEST);
+            respuesta= ResponseEntity.ok(HttpStatus.BAD_REQUEST);
+            respuesta = new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+        }
+        return respuesta;
+    } 
 }
