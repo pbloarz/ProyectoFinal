@@ -42,8 +42,8 @@ public class ProveedorController {
 	}
 	
 	@DeleteMapping("eliminar")
-	public void eliminarProveedor(@RequestParam Integer id) {
-		proveedorService.eliminarProveedor(id);
+	public ResponseEntity<Object> eliminarProveedor(@RequestParam Integer id) {
+		return proveedorService.eliminarProveedor(id);
 	}
 
 }
