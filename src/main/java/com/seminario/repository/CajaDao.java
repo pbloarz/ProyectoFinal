@@ -11,6 +11,6 @@ import com.seminario.model.Caja;
 @Repository
 public interface CajaDao extends JpaRepository<Caja, Integer>{
 	@Query
-	(value = "select * from caja where fecha_creacion >= ?1 AND  fecha_creacion < ?2", nativeQuery = true)
+	(value = "select * from caja where fecha >= ?1 AND  fecha < ?2", nativeQuery = true)
 	public List<Caja> findByFechaCreacion(String fechaIni, String fechaFin);
 }

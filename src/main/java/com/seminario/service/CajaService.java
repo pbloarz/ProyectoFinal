@@ -88,7 +88,7 @@ public class CajaService{
 		}catch(Exception e) {
 			logger.error(e);
 			respuesta = ResponseEntity.ok(HttpStatus.BAD_REQUEST);
-			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de consultar los proveedores en el rango de fechas", HttpStatus.BAD_REQUEST);
+			respuesta = new ResponseEntity<>("Disculpa tenemos un error tratando de consultar las cajas en el rango de fechas", HttpStatus.BAD_REQUEST);
 			
 		}
 		return respuesta;
